@@ -16,7 +16,7 @@ use App\Http\Controllers\AuthController;
 */
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/user', function (Request $request) {
-        return $request->user();
+        return $request->user()->currentAccessToken();
     });
     Route::post('/logout', [AuthController::class, 'Logout']);
 });
