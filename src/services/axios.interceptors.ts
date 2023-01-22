@@ -1,10 +1,9 @@
 import axios from "axios";
+import router from "@/router";
 
 const request = axios;
 
 request.defaults.baseURL = process.env.VUE_APP_API_URL;
-request.defaults.xsrfCookieName = "XSRF-TOKEN";
-request.defaults.xsrfHeaderName = "X-XSRF-TOKEN";
 
 request.interceptors.request.use(
   (config) => {
@@ -30,7 +29,8 @@ request.interceptors.response.use(
   (error) => {
     // Example: handle unauthorized errors
     if (error.response.status === 401) {
-      // redirect to login page
+      localStorage.removeItem("token");
+      router.push("/login");
     }
     return Promise.reject(error);
   }

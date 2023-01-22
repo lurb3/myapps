@@ -1,25 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <h1 class="home">Future app list page</h1>
+  <h2>You will be able to choose what app you want to view here</h2>
+  <h3>We can also add a TODO list here:</h3>
+  <ul>
+    <li></li>
+  </ul>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import request from "@/services/axios.interceptors";
-console.log(request.defaults.withCredentials);
-const test = async () => {
-  const response = await request.get("/api/v1/user");
-  console.log(response);
-};
-
-test();
-@Options({
-  components: {
-    HelloWorld,
+import { defineComponent } from "vue";
+export default defineComponent({
+  data() {
+    return {};
   },
-})
-export default class HomeView extends Vue {}
+  methods: {},
+});
 </script>
+
+<style></style>

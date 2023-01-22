@@ -27,7 +27,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import router from "@/router";
 import auth from "@/services/auth";
 
 export default defineComponent({
@@ -41,9 +40,7 @@ export default defineComponent({
   },
   methods: {
     handleSubmit() {
-      auth
-        .login(this.formData.email, this.formData.password)
-        .then(() => router.push("/"));
+      auth.login(this.formData.email, this.formData.password);
     },
   },
 });

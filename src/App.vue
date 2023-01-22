@@ -1,6 +1,22 @@
 <template>
+  <button @click="logout" class="logout-btn">logout</button>
   <router-view />
 </template>
+
+<script lang="ts">
+import auth from "@/services/auth";
+
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    logout() {
+      auth.logout();
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -26,5 +42,17 @@ nav {
       color: #42b983;
     }
   }
+}
+
+.logout-btn {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.logout-btn:hover {
+  text-decoration: underline;
 }
 </style>
