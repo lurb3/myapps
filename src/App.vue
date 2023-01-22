@@ -3,39 +3,16 @@
 </template>
 
 <style lang="scss">
-@font-face {
-  font-family: "Sensation_Bold";
-  src: local("Sensation_Bold"), url(./assets/fonts/Sensation/Sansation_Bold.ttf) format("truetype");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "Sensation_Light";
-  src: local("Sensation_Light"), url(./assets/fonts/Sensation/Sansation_Light.ttf) format("truetype");
-  font-weight: lighter;
-}
-@font-face {
-  font-family: "Sensation_Regular";
-  src: local("Sensation_Regular"), url(./assets/fonts/Sensation/Sansation_Regular.ttf) format("truetype");
-  font-weight: normal;
-}
-
 #app {
-  font-family: Sensation_Bold;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: white;
-}
-
-html, body {
- height: 100vh;
+  color: #2c3e50;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #22272B;
+  margin: 0;
 }
 
 nav {
