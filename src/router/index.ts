@@ -25,11 +25,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/signup",
     name: "singup",
     component: SignupViewVue,
+    meta: { requiresNoUser: true },
   },
   {
     path: "/login",
     name: "login",
     component: LoginViewVue,
+    meta: { requiresNoUser: true },
   },
   {
     path: "/expenses",
@@ -46,10 +48,13 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !auth.isAuthenticated()) {
-    next({ name: "login" });
-  } else {
-    next();
+    return next({ name: "login" });
   }
+
+  if (to.meta.requiresNoUser && auth.isAuthenticated()) {
+    return next({ name: "expenses" });
+  }
+  return next();
 });
 
 export default router;

@@ -76,6 +76,7 @@ export default defineComponent({
   align-items: center;
   height: 100vh;
   background-color: #f2f2f2;
+  padding: 0px 10%;
 }
 
 .signup-form-wrapper {

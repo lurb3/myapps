@@ -55,6 +55,7 @@ export default defineComponent({
   align-items: center;
   background-color: #f2f2f2;
   height: 100vh;
+  padding: 0px 10%;
 }
 
 .login-form-wrapper {
