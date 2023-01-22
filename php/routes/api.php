@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExpensesDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return $request->user()->currentAccessToken();
     });
     Route::post('/logout', [AuthController::class, 'Logout']);
+    Route::prefix('expenses')->group(function () {
+        Route::get('/', [ExpensesDetailsController::class, 'index']);
+        Route::get('/{expense}', [ExpensesDetailsController::class, 'show']);
+        Route::post('/', [ExpensesDetailsController::class, 'store']);
+        Route::delete('/{expense}', [ExpensesDetailsController::class, 'destroy']);
+    });
 });
 Route::post('/signup', [AuthController::class, 'SignUp']);
 Route::post('/login', [AuthController::class, 'Login']);

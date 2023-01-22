@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function SignUp (Request $request){
+    public function SignUp(Request $request)
+    {
         $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
@@ -24,15 +25,15 @@ class AuthController extends Controller
         ]);
 
         $token = $user->createToken('apiToken')->plainTextToken;
-        
+
         $res = [
             'user' => $user,
             'token' => $token
         ];
 
         return response($res, 201);
-    }   
-    
+    }
+
     public function Login(Request $request)
     {
         $data = $request->validate([
