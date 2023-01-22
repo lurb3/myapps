@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\ExpensesDetails;
 
 class ExpenseDetailsRequest extends FormRequest
 {
@@ -37,11 +38,18 @@ class ExpenseDetailsRequest extends FormRequest
                 'required',
                 'max: 255',
                 'min: 3',
-                Rule::unique('expenses_details')
+                $this->expense ?
+                    Rule::unique('expenses_details')->ignore($this->expense->id, 'id')
+                : Rule::unique('expenses_details')
             ],
             'amount' => 'required|max:999999|min: 0|decimal:2',
             'user_id' => 'required',
             'is_recurrent' => 'nullable',
         ];
+    }
+
+    public function expectsJson()
+    {
+        return true;
     }
 }

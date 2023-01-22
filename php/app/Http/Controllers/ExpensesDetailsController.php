@@ -23,6 +23,14 @@ class ExpensesDetailsController extends Controller
         return ExpensesDetails::create($request->validated());
     }
 
+    public function update(ExpenseDetailsRequest $request, ExpensesDetails $expense)
+    {
+        $expense->fill($request->validated());
+        $expense->save();
+
+        return $expense;
+    }
+
     public function destroy(ExpensesDetails $expense)
     {
         return $expense->delete();

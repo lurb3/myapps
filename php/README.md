@@ -8,7 +8,7 @@
 </p>
 
 ## PHP CS FIXER (temporary, hopefully)
-tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
+php tools/php-cs-fixer/vendor/bin/php-cs-fixer fix .
 
 ## About Laravel
 
